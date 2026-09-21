@@ -44,17 +44,26 @@ function updateLyrics() {
 
 setInterval(updateLyrics, 1000);
 
-// Función para ocultar el título 
+// Oculta el título después de 12 segundos y lo muestra nuevamente a los 30.
 function ocultarTitulo() {
   var titulo = document.querySelector(".titulo");
   if (titulo) {
     titulo.style.animation =
-      "fadeOut 3s ease-in-out forwards"; /* Duración y función de temporización de la desaparición */
+      "fadeOut 3s ease-in-out forwards";
     setTimeout(function () {
       titulo.style.display = "none";
-    }, 6000); // Espera 3 segundos antes de ocultar completamente
+    }, 3000);
   }
 }
 
-// Llama a la función después de 12 segundos (12000 milisegundos) para no tapar la animación
+function mostrarTitulo() {
+  var titulo = document.querySelector(".titulo");
+  if (titulo) {
+    titulo.style.display = "block";
+    titulo.style.animation = "none";
+  }
+}
+
+// Permanece visible durante 12 segundos y reaparece alrededor del segundo 30.
 setTimeout(ocultarTitulo, 12000);
+setTimeout(mostrarTitulo, 30000);
