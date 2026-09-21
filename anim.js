@@ -82,3 +82,11 @@ setTimeout(ocultarTitulo, 20000);
 
 // Vuelve a aparecer a los 30 segundos (20s visible + 10s oculto)
 setTimeout(mostrarTitulo, 30000);
+// Detectar cuando la canción termina
+audio.addEventListener("ended", function() {
+  // Esperar 3 segundos (3000 milisegundos) antes de volver a empezar
+  setTimeout(function() {
+    audio.currentTime = 0; // Asegura que vuelva al segundo cero
+    audio.play();          // Inicia la reproducción de nuevo
+  }, 3000);
+});
